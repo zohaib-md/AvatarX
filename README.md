@@ -21,19 +21,7 @@
 ## 🌌 The Vision
 **AvatarX** is not just an application; it is a "Fashion OS". It is a native Android experience designed to map human body mechanics into digital environments. By combining lightning-fast hardware-accelerated graphics with state-of-the-art AI, AvatarX extracts physical measurements, categorizes body types, and executes virtual garment try-ons without ever leaving your device.
 
----
 
-## 📸 Application Showcase
-
-<p align="center">
-  <img src="docs/images/screenshot_1.jpg" width="30%" alt="Digital Fit Model">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/screenshot_2.jpg" width="30%" alt="AI Stylist Insights">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/screenshot_3.jpg" width="30%" alt="Garment Selection">
-</p>
-
----
 
 ## 1. Executive Summary
 
@@ -47,13 +35,7 @@ This approach yields a highly performant, lightweight application capable of ext
 
 > **Note to Reviewer:** See the project's root `docs/` folder or issue attachments for high-resolution screenshots of the Digital Fit Model, AI Insights, and Virtual Try-On interfaces.
 
-<p align="center">
-  <img src="docs/images/screenshot_1.jpg" width="30%" alt="Digital Fit Model">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/screenshot_2.jpg" width="30%" alt="AI Stylist Insights">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/screenshot_3.jpg" width="30%" alt="Garment Selection">
-</p>
+*(To add your screenshots here, click the ✏️ pencil icon in the top right of this README on GitHub, highlight this text, and **drag and drop** your screenshots from your computer directly into this box! GitHub will automatically upload them and generate the correct images.)*
 
 ---
 
