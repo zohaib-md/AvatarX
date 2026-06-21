@@ -18,11 +18,42 @@
 
 ---
 
+## 🌌 The Vision
+**AvatarX** is not just an application; it is a "Fashion OS". It is a native Android experience designed to map human body mechanics into digital environments. By combining lightning-fast hardware-accelerated graphics with state-of-the-art AI, AvatarX extracts physical measurements, categorizes body types, and executes virtual garment try-ons without ever leaving your device.
+
+---
+
+## 📸 Application Showcase
+
+<p align="center">
+  <img src="docs/images/screenshot_1.jpg" width="30%" alt="Digital Fit Model">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/screenshot_2.jpg" width="30%" alt="AI Stylist Insights">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/screenshot_3.jpg" width="30%" alt="Garment Selection">
+</p>
+
+---
+
 ## 1. Executive Summary
 
 **AvatarX** is a next-generation "Fashion OS" designed to revolutionize virtual fitting and digital identity. Rather than relying on computationally expensive 3D game engines (e.g., Unity, Unreal) or environmentally restrictive augmented reality frameworks (e.g., ARCore), AvatarX leverages **Native Hardware-Accelerated Canvas Rendering** combined with **On-Device Machine Learning**. 
 
 This approach yields a highly performant, lightweight application capable of extracting biometric proportions, segmenting physical garments in real-time, and generating personalized AI-driven stylist analyses—all within a seamless, glassmorphic UI.
+
+---
+
+## 📸 Application Showcase
+
+> **Note to Reviewer:** See the project's root `docs/` folder or issue attachments for high-resolution screenshots of the Digital Fit Model, AI Insights, and Virtual Try-On interfaces.
+
+<p align="center">
+  <img src="docs/images/screenshot_1.jpg" width="30%" alt="Digital Fit Model">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/screenshot_2.jpg" width="30%" alt="AI Stylist Insights">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/screenshot_3.jpg" width="30%" alt="Garment Selection">
+</p>
 
 ---
 
