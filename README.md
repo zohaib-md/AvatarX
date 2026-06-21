@@ -1,83 +1,127 @@
 <div align="center">
 
-# AvatarX — Real-Time Avatar & Body Tracking Android Application
+# AvatarX — Real-Time Avatar & Body Tracking Application
 
 <p align="center">
-  <i>Bridging the physical and digital world through on-device machine learning.</i>
+  <i>An advanced, on-device machine learning application bridging physical biometrics with digital identity.</i>
 </p>
 
 ---
 
-![Kotlin](https://img.shields.io/badge/Kotlin-100%%-B125EA?style=for-the-badge&logo=kotlin&logoColor=white)
-![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-Native_UI-4285F4?style=for-the-badge&logo=android)
-![MediaPipe](https://img.shields.io/badge/Google_MediaPipe-Pose_Tracking-0F9D58?style=for-the-badge)
-![Gemini AI](https://img.shields.io/badge/Gemini_2.5_Flash-Fit_Analysis-8E75FF?style=for-the-badge&logo=googlebard&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Language-Kotlin-B125EA?style=for-the-badge&logo=kotlin)
+![Architecture](https://img.shields.io/badge/Architecture-MVVM-4285F4?style=for-the-badge)
+![UI Framework](https://img.shields.io/badge/UI-Jetpack_Compose-3DDC84?style=for-the-badge&logo=android)
+![ML](https://img.shields.io/badge/ML-MediaPipe_%7C_ML_Kit-0F9D58?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI-Gemini_2.5-8E75FF?style=for-the-badge&logo=googlebard&logoColor=white)
 
 </div>
 
-## The Vision
-**AvatarX** is not just an application; it is a "Fashion OS". It is a native Android experience designed to map human body mechanics into digital environments. By combining lightning-fast hardware-accelerated graphics with state-of-the-art AI, AvatarX extracts physical measurements, categorizes body types, and executes virtual garment try-ons without ever leaving your device.
+---
+
+## 1. Executive Summary
+
+**AvatarX** is a next-generation "Fashion OS" designed to revolutionize virtual fitting and digital identity. Rather than relying on computationally expensive 3D game engines (e.g., Unity, Unreal) or environmentally restrictive augmented reality frameworks (e.g., ARCore), AvatarX leverages **Native Hardware-Accelerated Canvas Rendering** combined with **On-Device Machine Learning**. 
+
+This approach yields a highly performant, lightweight application capable of extracting biometric proportions, segmenting physical garments in real-time, and generating personalized AI-driven stylist analyses—all within a seamless, glassmorphic UI.
 
 ---
 
-## Core Systems Architecture
+## 2. System Architecture & Data Flow
 
-### 1. Real-Time Pose & Measurement Engine
-Instead of relying on heavy frameworks like ARCore, AvatarX utilizes **Google MediaPipe**. 
-* **33-Point Skeleton Tracking:** Captures complex bodily movements via live camera feed.
-* **Proportion Estimation:** Mathematically extracts pixel-to-cm ratios to estimate *Shoulder Width*, *Hip Width*, and *Height*.
-* **Body Type Categorization:** Automatically calculates shoulder-to-hip ratios to classify the user into `Slim`, `Regular`, `Athletic`, or `Broad`.
+AvatarX operates on a strict **Unidirectional Data Flow (UDF)** adhering to the MVVM architecture. The application is divided into three core subsystems: the Biometric Engine, the Segmentation Engine, and the Generative AI Engine.
 
-### 2. The Dual-Avatar Identity
-The app creates two distinct representations of the user:
-* **The Visual Twin:** A high-fidelity capture of the user's physical appearance.
-* **The Digital Fit Model:** An interactive, mathematical wireframe mannequin drawn natively on Canvas. Its shoulders, torso, and hips actively scale to match the user's extracted measurements.
+```mermaid
+graph TD
+    %% Core Inputs
+    CameraInput[Live Camera Feed] --> |YUV_420_888| PoseDetector(Google MediaPipe Pose)
+    CameraInput --> |Bitmap| ImageSegmenter(ML Kit Subject Segmentation)
 
-### 3. Intelligent Virtual Try-On & Segmentation
-* **ML Kit Subject Segmentation:** Scans a physical garment laid flat and magically strips away the background in milliseconds.
-* **Dynamic Matrix Scaling:** Overlays garments onto the live camera feed, scaling them perfectly based on the user's live shoulder-width tracking data. 
-* **Canvas Blending:** Employs advanced alpha blending and color filters so the digital clothing sits naturally on the physical body.
+    %% Biometric Processing
+    PoseDetector --> |33 Landmarks| MathEngine{Biometric Calculator}
+    MathEngine --> |Shoulder Width| Scaler(Dynamic Matrix Scaler)
+    MathEngine --> |Shoulder-to-Hip Ratio| Classifier(Body Type Classifier)
 
-### 4. Gemini AI Fashion Stylist
-AvatarX sends the user's biometric data and the segmented garment to **Gemini 2.5 Flash**. The LLM processes the visual data alongside the physical measurements to return a highly personalized, stylist-level fit analysis (evaluating Comfort, Style Match, and Body Alignment).
+    %% Avatar Generation
+    Scaler --> TwinEngine[Digital Fit Model Generator]
+    
+    %% Garment Processing
+    ImageSegmenter --> |Background Removed| TransparentAsset[Digital Garment Asset]
+    TransparentAsset --> TryOnEngine[Virtual Try-On Compositor]
+    Scaler --> TryOnEngine
+
+    %% AI Pipeline
+    Classifier --> |Biometric Metadata| Gemini[Gemini 2.5 LLM]
+    TransparentAsset --> Gemini
+    CameraInput --> Gemini
+    Gemini --> |JSON Response| StylistUI[AI Insight Interface]
+```
 
 ---
 
-## Tech Stack Highlights
+## 3. Core Subsystems
 
-* **Language:** `Kotlin`
-* **UI Framework:** `Jetpack Compose` (100% Declarative UI)
-* **Graphics:** Native Android Canvas (Hardware Accelerated via Skia/Vulkan — chosen over Unity/OpenGL to keep the application lightweight and blazing fast).
-* **Camera:** `CameraX API`
-* **Concurrency:** `Kotlin Coroutines` & `StateFlow` (Strict Unidirectional Data Flow)
+### 3.1. The Biometric & Kinematic Engine
+AvatarX captures complex bodily movements without requiring external depth sensors.
+* **33-Point Skeleton Tracking:** Utilizes MediaPipe to extract high-fidelity spatial coordinates from a 2D camera feed.
+* **Mathematical Proportion Extraction:** Implements an algorithm that maps pixel distances between the `LEFT_SHOULDER` and `RIGHT_SHOULDER` nodes, applying a normalization matrix to estimate physical centimeters.
+* **Algorithmic Body Typing:** Uses the calculated `Shoulder Width : Hip Width` ratio to automatically classify the user's biomechanics into one of four distinct categories: `Slim`, `Regular`, `Athletic`, or `Broad`.
+
+### 3.2. Native Hardware Rendering (The Digital Twin)
+To maintain 60+ FPS while rendering complex visuals, AvatarX eschews heavy OpenGL/Vulkan wrappers.
+* **Dynamic Wireframe Generation:** The app natively draws a "Digital Fit Model" directly onto the Android `Canvas`. The model's vertices are dynamically bound to the output of the Biometric Engine.
+* **Matrix Scaling:** Garment assets are projected onto the user's feed using a custom `OverlayTransform` matrix, ensuring the digital clothing scales exponentially relative to the user's Z-axis depth.
+
+### 3.3. Subject Segmentation
+* **Instant Background Removal:** Incorporates Google ML Kit's Subject Segmentation API. When a garment is laid flat, the ML model identifies the primary subject mask and zeroes out the surrounding alpha channels, caching the result locally as a transparent PNG asset.
+
+### 3.4. Generative AI Fashion Analysis
+* **Multimodal LLM Integration:** AvatarX packages the user's captured body image, the segmented garment image, and the extracted numerical biometric data into a multimodal payload.
+* **Stylist Inference:** This payload is sent to the **Gemini 2.5 Flash** endpoint via the Google Generative AI SDK. The model returns a structured JSON evaluation scoring the garment's *Comfort*, *Style Match*, and *Body Alignment*.
 
 ---
 
-## Setup & Installation
+## 4. Technical Stack Matrix
 
-> [!IMPORTANT]
-> A physical Android device running Android 10+ (API 29+) is **highly recommended**. Emulators lack the camera performance and hardware acceleration needed for real-time ML processing.
+| Domain | Technology / Framework | Justification |
+| :--- | :--- | :--- |
+| **Language** | Kotlin | Modern, concise, and offers unparalleled null-safety and coroutine support for asynchronous ML tasks. |
+| **UI Rendering** | Jetpack Compose | Declarative UI paradigm drastically reduces UI lag and allows for complex `AnimatedContent` state transitions. |
+| **Graphics** | Android Canvas (Skia) | Directly hardware-accelerated by the OS GPU; avoids the immense bloat of embedding a Unity scene. |
+| **Camera Feed** | CameraX | Lifecycle-aware camera pipeline that natively handles hardware rotation and stream analysis. |
+| **Machine Learning** | MediaPipe & ML Kit | Industry-standard, highly optimized C++ models deployed directly on-device for zero-latency inference. |
+| **Generative AI** | Gemini 2.5 | Unmatched multimodal vision capabilities necessary for analyzing both body proportions and fabric aesthetics simultaneously. |
 
-1. **Clone the Repository**
+---
+
+## 5. Build & Deployment Instructions
+
+### System Requirements
+* **IDE:** Android Studio (Koala Feature Drop or newer).
+* **Hardware:** A physical Android testing device (API Level 29+). Emulators are strictly prohibited for accurate testing as they lack the camera hardware and GPU acceleration required for the Machine Learning pipelines.
+
+### Setup Protocol
+
+1. **Clone the Repository:**
    ```bash
    git clone https://github.com/zohaib-md/AvatarX.git
+   cd AvatarX
    ```
 
-2. **Inject the Intelligence (API Key)**
-   To enable the Gemini AI Fit Analysis, you must provide your API key.
-   Open the `local.properties` file in the root of the project and add:
+2. **Configure API Authentication:**
+   The AI Stylist subsystem requires a valid Gemini API key to authenticate network requests. 
+   Navigate to the project root and append your key to `local.properties`:
    ```properties
-   GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_API_KEY=insert_your_secure_api_key_here
    ```
 
-3. **Build & Run**
-   * Open the project in **Android Studio**.
-   * Sync Gradle files.
-   * Connect your physical Android device.
-   * Hit **Run** (`Shift + F10`).
+3. **Compile & Execute:**
+   * Open the project directory in Android Studio.
+   * Allow Gradle to resolve and sync all Maven dependencies.
+   * Connect your physical Android device via USB/Wireless Debugging.
+   * Execute the build sequence (`Shift + F10`).
 
 ---
 
 <div align="center">
-  <p><i>Developed for the Smarrtifai Technical Assignment.</i></p>
+  <b>Designed and Engineered for the Smarrtifai Technical Assignment.</b>
 </div>
