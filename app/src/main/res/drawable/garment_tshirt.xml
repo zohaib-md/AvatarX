@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="240dp"
+    android:viewportWidth="200"
+    android:viewportHeight="240">
+    <!-- T-Shirt shape -->
+    <path
+        android:fillColor="#3D8BFF"
+        android:fillAlpha="0.6"
+        android:pathData="M60,0 L80,0 L80,20 Q100,30 120,20 L120,0 L140,0 L200,50 L170,80 L140,60 L140,240 L60,240 L60,60 L30,80 L0,50 Z" />
+    <path
+        android:strokeColor="#5B9FFF"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M60,0 L80,0 L80,20 Q100,30 120,20 L120,0 L140,0 L200,50 L170,80 L140,60 L140,240 L60,240 L60,60 L30,80 L0,50 Z" />
+</vector>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="night_black">#FF09090F</color>
+    <color name="onyx_surface">#FF14141D</color>
+    <color name="graphite_surface">#FF1C1C28</color>
+    <color name="electric_blue">#FF3D8BFF</color>
+    <color name="steel_blue">#FF5B9FFF</color>
+    <color name="ice_blue">#FFA8CCFF</color>
+    <color name="silver_highlight">#FFE6EAF2</color>
+    <color name="mint_success">#FF8BE9A8</color>
+    <color name="cloud_gray">#FF9CA3AF</color>
+    <color name="stone_gray">#FF6B7280</color>
+    <color name="dim_gray">#FF374151</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

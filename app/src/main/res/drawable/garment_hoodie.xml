@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="240dp"
+    android:viewportWidth="200"
+    android:viewportHeight="240">
+    <!-- Hoodie shape -->
+    <path
+        android:fillColor="#6366F1"
+        android:fillAlpha="0.6"
+        android:pathData="M60,0 L75,0 Q100,-10 125,0 L140,0 L200,50 L170,80 L150,65 L150,240 L50,240 L50,65 L30,80 L0,50 Z" />
+    <!-- Hood -->
+    <path
+        android:fillColor="#6366F1"
+        android:fillAlpha="0.4"
+        android:pathData="M70,0 Q100,-25 130,0 Q115,15 100,10 Q85,15 70,0 Z" />
+    <path
+        android:strokeColor="#818CF8"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M60,0 L75,0 Q100,-10 125,0 L140,0 L200,50 L170,80 L150,65 L150,240 L50,240 L50,65 L30,80 L0,50 Z" />
+    <!-- Front pocket -->
+    <path
+        android:strokeColor="#818CF8"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M70,140 L130,140 L130,180 L70,180 Z" />
+</vector>

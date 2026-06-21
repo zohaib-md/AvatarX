@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="240dp"
+    android:viewportWidth="200"
+    android:viewportHeight="240">
+    <!-- Jacket shape -->
+    <path
+        android:fillColor="#1E3A8A"
+        android:fillAlpha="0.6"
+        android:pathData="M55,0 L80,0 L80,15 Q100,25 120,15 L120,0 L145,0 L200,45 L175,80 L150,60 L155,240 L105,240 L100,30 L95,240 L45,240 L50,60 L25,80 L0,45 Z" />
+    <!-- Collar -->
+    <path
+        android:fillColor="#374151"
+        android:fillAlpha="0.8"
+        android:pathData="M75,0 L80,15 Q100,25 120,15 L125,0 L120,5 Q100,18 80,5 Z" />
+    <path
+        android:strokeColor="#3D8BFF"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M55,0 L80,0 L80,15 Q100,25 120,15 L120,0 L145,0 L200,45 L175,80 L150,60 L155,240 L45,240 L50,60 L25,80 L0,45 Z" />
+    <!-- Zipper line -->
+    <path
+        android:strokeColor="#3D8BFF"
+        android:strokeWidth="1.5"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M100,25 L100,240" />
+</vector>
