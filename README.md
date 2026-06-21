@@ -35,7 +35,11 @@ This approach yields a highly performant, lightweight application capable of ext
 
 > **Note to Reviewer:** See the project's root `docs/` folder or issue attachments for high-resolution screenshots of the Digital Fit Model, AI Insights, and Virtual Try-On interfaces.
 
-*(To add your screenshots here, click the ✏️ pencil icon in the top right of this README on GitHub, highlight this text, and **drag and drop** your screenshots from your computer directly into this box! GitHub will automatically upload them and generate the correct images.)*
+<img width="720" height="1600" alt="WhatsApp Image 2026-06-21 at 17 51 09 (1)" src="https://github.com/user-attachments/assets/074ce49c-3cc4-4aff-b46c-61c66006d037" />
+<img width="720" height="1600" alt="WhatsApp Image 2026-06-21 at 17 51 10" src="https://github.com/user-attachments/assets/bf72fe36-5fc3-4ce2-93f6-111cf5efe9de" />
+<img width="720" height="1600" alt="WhatsApp Image 2026-06-21 at 17 51 10 (1)" src="https://github.com/user-attachments/assets/a75dc852-aede-4823-8ea3-e4951b59580c" />
+<img width="720" height="1600" alt="WhatsApp Image 2026-06-21 at 17 51 09" src="https://github.com/user-attachments/assets/fcff3b7a-9507-4817-8297-2d63a67362e4" />
+
 
 ---
 
